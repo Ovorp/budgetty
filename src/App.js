@@ -4,17 +4,20 @@ import axios from 'axios';
 import Login from './components/Login/Login';
 import Budget from './components/Budget/Budget';
 import './App.css';
+import { Provider } from 'react-redux';
+import store from './ducks/store';
 
 class App extends Component {
-
   render() {
     return (
-      <HashRouter>
-        <Switch>
-          <Route path='/' component={Login} exact />
-          <Route path='/my-budget' component={Budget} />
-        </Switch>
-      </HashRouter>
+      <Provider store={store}>
+        <HashRouter>
+          <Switch>
+            <Route path="/" component={Login} exact />
+            <Route path="/my-budget" component={Budget} />
+          </Switch>
+        </HashRouter>
+      </Provider>
     );
   }
 }
